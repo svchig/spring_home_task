@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util
+ 	http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DiscountServiceImplement">
+        <property name="discounts">
+            <list>
+                <bean class="ua.epam.spring.hometask.dao.impl.DiscountDAOBirthdayBonusImplement"/>
+                <bean class="ua.epam.spring.hometask.dao.impl.DiscountDAOWholesaleImplement"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.AuditoriumServiceImplement">
+        <property name="auditoriumDAO" ref="auditoriumDAO"/>
+    </bean>
+
+    <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImplement">
+        <property name="bookingDAO" ref="bookingDAO"/>
+    </bean>
+
+    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImplement">
+        <property name="eventDAO" ref="eventDAO"/>
+    </bean>
+
+    <bean id="userService" class="ua.epam.spring.hometask.service.impl.UserServiceImplement">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+
+    <bean id="auditoriumDAO" class="ua.epam.spring.hometask.dao.impl.AuditoriumDAOImplement"/>
+
+    <bean id="bookingDAO" class="ua.epam.spring.hometask.dao.impl.BookingDAOImplement"/>
+
+    <bean id="eventDAO" class="ua.epam.spring.hometask.dao.impl.EventDAOImplement"/>
+
+    <bean id="userDAO" class="ua.epam.spring.hometask.dao.impl.UserDAOImplement"/>
+
+</beans>
